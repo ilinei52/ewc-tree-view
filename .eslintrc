@@ -1,0 +1,22 @@
+{
+  "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+  },
+  "parserOptions": {
+      "sourceType": "module"
+  },
+  "extends": [
+      "eslint:recommended",
+      "google"
+  ],
+  "rules": {
+      "max-len": [
+          "error",
+          {
+              "code": 120
+          }
+      ]
+  }
+}

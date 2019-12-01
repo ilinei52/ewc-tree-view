@@ -1,0 +1,36 @@
+{
+  "name": "ecw-tree-view",
+  "version": "0.0.0-1",
+  "description": "Treeview web componen",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npx webpack-dev-server --config ./webpack.dev.config.js --open",
+    "build": "npx webpack --config ./webpack.dev.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilinei52/ewc-tree-view.git"
+  },
+  "keywords": [
+    "tree-view",
+    "webcomponents"
+  ],
+  "author": "il`ich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilinei52/e-tree-view/issues"
+  },
+  "homepage": "https://github.com/ilinei52/e-tree-view#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-loader": "^3.0.2",
+    "html-loader": "^0.5.5",
+    "raw-loader": "^4.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "copy-webpack-plugin": "^5.0.5"
+  }
+}

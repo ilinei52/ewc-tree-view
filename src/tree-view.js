@@ -23,6 +23,12 @@ class TreeView extends HTMLElement {
     this._shadowRoot = this.attachShadow({mode: 'open'});
     this._shadowRoot.appendChild(template.content.cloneNode(true));
 
+    // slots
+    // this._slots = {
+    //   default: this._shadowRoot.querySelector('default-slot'),
+    // };
+
+
     this._toggler = this._shadowRoot.querySelectorAll('.caret');
   }
 

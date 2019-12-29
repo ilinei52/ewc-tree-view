@@ -12,6 +12,7 @@
   <div class="html-element-example">
     <tree-view>
       <tree-view-item></tree-view-item>
+      <tree-view-item></tree-view-item>
     </tree-view>
   </div>
   <div class="html-element-example-with-attr">
@@ -41,13 +42,13 @@
     // ---- object-example ----
     const treeView = new TreeView();
     treeView.items = data;
-    treeView.renderTo(document.querySelector('.object-example'));
+    document.querySelector('.object-example').appendChild(treeView);
     console.log(`treeView get items: ${treeView.items}`);
 
     // ---- object-example-data ----
     const treeViewAtrData = new TreeView();
     treeViewAtrData.setAttribute('items', JSON.stringify(data));
-    treeViewAtrData.renderTo(document.querySelector('.object-example-data'));
+    document.querySelector('.object-example-data').appendChild(treeViewAtrData);
     console.log(`treeViewAtrData get items: ${treeViewAtrData.items}`);
 
   </script>

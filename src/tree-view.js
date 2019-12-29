@@ -1,3 +1,5 @@
+import TreeViewItem from './tree-view-item';
+
 // import TreeViewItem from './tree-view-item';
 
 const template = document.createElement('template');
@@ -80,13 +82,16 @@ class TreeView extends HTMLElement {
   _init() {
     const _this = this;
 
-    // Generate getters and setters from observed attributes
+    // ---------------------------------------------------------------
+    //  Generate getters and setters from observed attributes
+    //  Description:
+    //  _this[attr] equals _this.getAttribute(attr)
+    //  _this[attr] = _val equals _this.setAttribute(attr, _val)
     const oAttrs = TreeView.observedAttributes;
     if (oAttrs && Array.isArray(oAttrs)) {
       oAttrs.forEach((attr) => {
         Object.defineProperty(_this, attr, {
           get: function() {
-            console.log('Get observed item');
             try {
               return JSON.parse(_this.getAttribute(attr));
             } catch (ex) {
@@ -94,13 +99,14 @@ class TreeView extends HTMLElement {
             }
           },
           set: function(val) {
-            console.log(`Set observed item ${val}`);
             const _val = JSON.stringify(val);
             _this.setAttribute(attr, _val);
           },
         });
       });
     }
+
+    // ---------------------------------------------------------------
   }
 
   /**
@@ -108,7 +114,6 @@ class TreeView extends HTMLElement {
    */
   connectedCallback() {
     console.log('connectedCallback');
-    // console.log(JSON.stringify(this.getAttribute('items')));
   }
 
   /**
@@ -133,79 +138,17 @@ class TreeView extends HTMLElement {
    */
   attributeChangedCallback(name, oldValue, newValue) {
     console.log(`attributeChangedCallback ${newValue}`);
-    // switch(name){
-    //   case 'id':
-    //     this._id = newValue;
-    //     break;
-    //   case 'title':
-    //     this._title = newValue;
-    //     break;
-    //   case 'open':
-    //     this._open = newValue == "true" ? true : false;
-    //     break;
-    //   case 'position':
-    //     this._open = newValue;
-    //     break;
-    // }
-    // this.render();
-  }
-
-  /**
-   * Assign listeners
-   */
-  // _assignListeners() {
-
-  // }
-
-  /**
-   * Component render function
-   * @param{HTMLElement} el HTML element to render
-   */
-  renderTo(el) {
-    if (el && el instanceof HTMLElement) {
-      el.appendChild(this);
-    } else {
-      throw new Error('Can render only in HTMLElement');
+    if (name === 'items') {
+      if (this.items && Array.isArray(this.items)) {
+        const items = this.items;
+        const _this = this;
+        items.forEach((treeItem) => {
+          const item = new TreeViewItem(treeItem);
+          _this.appendChild(item);
+        });
+      }
     }
   }
-
-  // /**
-  //  * @param  {Array<object>} items
-  //  */
-  // set items(items) {
-  //   this.setAttribute('items', items);
-  //   // this._items = items;
-  //   // this._render('data', data);
-  // }
-
-  // get items() {
-  //   return this.getAttribute('items');
-  // }
-
-  // _render_data() {
-  // }
-
-  // _render(attr, value) {
-  //   if (attr) {
-
-  //   } else {
-
-  //   }
-  // }
-
-  // /**
-  //  * Render property items
-  //  */
-  // _renderItems () {
-  //   // create all tree-view-items this.items
-  // }
-
-  // /**
-  //  * Render property items
-  //  */
-  // _renderItem (item) {
-  //   return new TreeViewItem (item);
-  // }
 }
 
 export default TreeView;

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./../tree-view.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>HTMLElement</h2>
+  <tree-view id="tvHTMLElement">
+    <tree-view-item>Item 1</tree-view-item>
+    <tree-view-item>
+      Item 2
+      <tree-view-item>Item 2.1</tree-view-item>
+      <tree-view-item>Item 2.2</tree-view-item>
+    </tree-view-item>
+  </tree-view>
+  
+  <hr>
+  
+  <h2>Attributes</h2>
+  <tree-view id="tvFillAttributes"></tree-view>
+  
+  <hr>
+
+  <h2>Only JS</h2>
+  <div id="tcJsContainer"></div>
+
+  <script type="module" src="./index.js"></script>
+  <script>
+    // import lib from './../tree-view';
+    // const testItems = [{
+    //       id: 1,
+    //       name: "Item 1",
+    //       children: [{
+    //           id: 11,
+    //           name: "Item 1_1",
+    //           children: []
+    //         },
+    //         {
+    //           id: 12,
+    //           name: "Item 1_2",
+    //           children: []
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       id: 1,
+    //       name: "Item 2",
+    //       children: [{
+    //           id: 11,
+    //           name: "Item 2_1",
+    //           children: [{
+    //               id: 11,
+    //               name: "Item 2_1_1",
+    //             },
+    //             {
+    //               id: 12,
+    //               name: "Item 2_1_1",
+    //             }
+    //           ]
+    //         },
+    //         {
+    //           id: 12,
+    //           name: "Item 2_2",
+    //         }
+    //       ]
+    //     },
+    //   ];
+    
+    // function tvByAttributesFill() {
+    //   const $treeViewAttr = document.querySelector('#tvFillAttributes');
+    //   $treeViewAttr.items = testItems;
+    //   // $treeViewAttr.setAttribute('items', testItems);
+    // }
+
+    // function tvJsFill() {
+    //   const $tvJsContainer = document.querySelector('#tcJsContainer');
+    //   const tv = new TreeView({items:testItems});
+    // }
+
+    // document.addEventListener('DOMContentLoaded', (ev) => {
+    //   console.log('All dom loaded and all scripts performed!');
+    //   // tvByAttributesFill()
+    //   // tvJsFill();
+    //   const TreeView = require('TreeView');
+    // });
+  </script>
+</body>
+
+</html>

@@ -5,13 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="../tree-view-all.js"></script>
 </head>
 <body>
   <h1>Examples</h1>
-  <ul>
-    <li>
-      <a href="./examples/simple.html">Simple list</a>
-    </li>
-  </ul>
+  <div class="html-element-example">
+    <tree-view>
+      <tree-view-item></tree-view-item>
+    </tree-view>
+  </div>
+  <div class="html-element-example-with-attr">
+    <tree-view items="tests"></tree-view>
+  </div>
+  <hr>
+  <div class="object-example"></div>
+  <br>
+  <hr>
+  <div class="object-example-data"></div>
+  <script>
+    
+    const data = [
+        { id: 0, name: 'Item1' },
+        { id: 0, name: 'Item2' },
+        {
+          id: 0, name: 'Item3', children: [
+            { id: 0, name: 'Item3.1' },
+            { id: 0, name: 'Item3.2' },
+          ]
+        },
+      ];
+
+    const treeViewAttr = document.querySelector('.html-element-example-with-attr').firstElementChild;
+    console.log(`treeViewAttr get items: ${treeViewAttr.items}`);
+
+    // ---- object-example ----
+    const treeView = new TreeView();
+    treeView.items = data;
+    treeView.renderTo(document.querySelector('.object-example'));
+    console.log(`treeView get items: ${treeView.items}`);
+
+    // ---- object-example-data ----
+    const treeViewAtrData = new TreeView();
+    treeViewAtrData.setAttribute('items', JSON.stringify(data));
+    treeViewAtrData.renderTo(document.querySelector('.object-example-data'));
+    console.log(`treeViewAtrData get items: ${treeViewAtrData.items}`);
+
+  </script>
 </body>
 </html>
